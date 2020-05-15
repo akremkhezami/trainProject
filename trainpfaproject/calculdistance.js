@@ -3,9 +3,10 @@
 module.exports = { mqttConnectAndpublish, mqttConnectAndsubscribe,deg2rad,getDistanceFromLatLonInKm}
 const Stations = require("./model/station.model");
 const Arrival = require("./model/arrivaltime.model");
+var cred = { port: 1883, username: 'username', password: 'insat'};
 const Train = require("./model/train.model");
 var mqtt = require('mqtt');
-var client = mqtt.connect('mqtt://54.36.182.216:1883');
+var client = mqtt.connect('mqtt://54.36.182.216', cred);
 let Station = new Stations();
 var msg = '{ "traincode": "150E" ,"latitude": 36.74687194824219, "longitude" : 10.304576873779297, "vitesse" : 0.129640}' ; 
 
